@@ -209,7 +209,7 @@ function IOSDevice({
   if (realMobile) {
     return (
       <div style={{
-        width: '100vw', height: '100dvh', minHeight: '100vh',
+        width: '100vw', height: '100dvh', minHeight: '100svh',
         overflow: 'hidden', position: 'relative',
         background: dark ? '#000' : '#F1E9D6',
         fontFamily: '-apple-system, system-ui, sans-serif',

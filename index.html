@@ -20,16 +20,22 @@
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@700;800;900&amp;family=Manrope:wght@500;700;800&amp;display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; }
+    html { margin: 0; min-height: 100%; background: #F1E9D6; }
     body { margin: 0; background: #EAE6DA; font-family: "Manrope", -apple-system, "PingFang SC", sans-serif; display: flex; justify-content: center; padding: 40px 20px; }
     a { color: #0F1A5C; }
     a:hover { color: #2DC684; }
     ::placeholder { color: rgba(15,26,92,0.45); }
     ::-webkit-scrollbar { display: none; }
     @keyframes mdSkeletonPulse { 0%, 100% { opacity: 0.35; } 50% { opacity: 0.7; } }
+    @media (max-width: 600px) {
+      html, body { width: 100%; height: 100%; min-height: 100%; overflow: hidden; background: #F1E9D6; }
+      body { display: block; padding: 0; justify-content: initial; }
+      x-import { display: block !important; width: 100vw !important; height: 100dvh !important; min-height: 100svh !important; }
+    }
   </style>
 </helmet>
 
-<x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dc-props="{{ device }}" hint-size="402px,874px">
+<x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dc-props="{{ device }}" hint-size="100vw,100dvh">
   <div style="height:100%; display:flex; flex-direction:column; background:#F1E9D6;">
     <div style="padding:54px 18px 12px; background:#F1E9D6; position:relative; z-index:5; flex-shrink:0; border-bottom:3px solid #0F1A5C;">
       <div style="height:3px; background:rgba(15,26,92,0.15); margin-bottom:12px; overflow:hidden;">
