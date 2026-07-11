@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<meta name="ext-resource-dependency" content="./dashboard-data.js" data-resource-id="dashboardData" />
+</head>
+<body>
+<template id="__bundler_thumbnail" data-bg-color="#F1E9D6">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#F1E9D6"/>
+    <rect x="360" y="240" width="480" height="320" fill="none" stroke="#0F1A5C" stroke-width="16"/>
+    <text x="600" y="455" text-anchor="middle" font-family="Georgia, serif" font-weight="900" font-size="200" fill="#0F1A5C">M</text>
+    <rect x="360" y="600" width="480" height="16" fill="#3CD896"/>
+  </svg>
+</template>
+<x-dc>
+<helmet data-dc-atomics>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@700;800;900&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "Manrope", -apple-system, "PingFang SC", sans-serif; }
+    a { color: #0F1A5C; }
+    a:hover { color: #2DC684; }
+    ::placeholder { color: rgba(15,26,92,0.45); }
+    mark.md-hl { background: #3CD896; color: #0F1A5C; padding: 0 2px; }
+  </style>
+</helmet>
+
+<div style="background:#F1E9D6; min-height:100vh; color:#0F1A5C; line-height:1.55;">
+<div style="max-width:1040px; margin:0 auto; padding:0 24px 80px;" data-screen-label="Morning Dashboard">
+
+  <div style="display:flex; align-items:center; justify-content:space-between; padding:22px 0; border-bottom:4px solid #0F1A5C; margin-bottom:32px; font-family:'Manrope',sans-serif; font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;">
+    <span>Morning Dashboard · No. 07</span>
+    <span>{{ heroGenerated }} · ⌘H to highlight selection</span>
+  </div>
+
+  <header style="margin-bottom:28px;">
+    <p style="margin:0 0 14px; color:#0F1A5C; font-family:'Manrope',sans-serif; font-size:13px; font-weight:800; letter-spacing:0.18em; text-transform:uppercase;">Daily Intelligence</p>
+    <h1 style="margin:0; font-family:'Bodoni Moda',serif; font-size:76px; line-height:0.95; font-weight:900; letter-spacing:-0.02em;">Morning Dashboard</h1>
+    <p style="max-width:640px; font-size:18px; color:rgba(15,26,92,0.7); margin:20px 0 0; font-weight:500;">News, AI builders, podcasts and tech signals — one bilingual morning scan.</p>
+
+    <div style="display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:0; margin-top:28px; border:4px solid #0F1A5C;">
+      <div style="background:#0F1A5C; color:#3CD896; padding:20px; border-right:4px solid #0F1A5C;">
+        <span style="display:block; font-family:'Manrope',sans-serif; font-size:11px; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; opacity:0.85;">Latest Day</span>
+        <strong style="display:block; margin-top:10px; font-family:'Bodoni Moda',serif; font-size:32px; line-height:1; font-weight:900;">{{ latestDate }}</strong>
+        <span style="display:block; margin-top:8px; font-size:12px; opacity:0.85;">{{ latestCount }} items today</span>
+      </div>
+      <div style="background:#F1E9D6; color:#0F1A5C; padding:20px; border-right:4px solid #0F1A5C;">
+        <span style="display:block; font-family:'Manrope',sans-serif; font-size:11px; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; opacity:0.65;">Archive</span>
+        <strong style="display:block; margin-top:10px; font-family:'Bodoni Moda',serif; font-size:32px; line-height:1; font-weight:900;">{{ heroItems }}</strong>
+        <span style="display:block; margin-top:8px; font-size:12px; opacity:0.65;">items indexed (last 7 days)</span>
+      </div>
+      <div style="background:#F1E9D6; color:#0F1A5C; padding:20px;">
+        <span style="display:block; font-family:'Manrope',sans-serif; font-size:11px; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; opacity:0.65;">Current Mix</span>
+        <strong style="display:block; margin-top:10px; font-family:'Bodoni Moda',serif; font-size:32px; line-height:1; font-weight:900;">{{ topFeedName }}</strong>
+        <span style="display:block; margin-top:8px; font-size:12px; opacity:0.65;">largest feed in the archive</span>
+      </div>
+    </div>
+  </header>
+
+  <sc-if value="{{ showSpanish }}" hint-placeholder-val="{{ true }}">
+  <section style="margin-bottom:32px;">
+    <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px; padding-bottom:8px; border-bottom:4px solid #0F1A5C;">
+      <span style="display:inline-block; white-space:nowrap; background:#0F1A5C; color:#3CD896; padding:6px 12px; font-family:'Manrope',sans-serif; font-size:11px; font-weight:800; letter-spacing:0.12em; text-transform:uppercase;">🇪🇸 Español</span>
+      <span style="font-family:'Manrope',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:rgba(15,26,92,0.55);">每日一句 · Day 1 Transcript</span>
+      <button onClick="{{ toggleSpanish }}" style="margin-left:auto; border:2px solid #0F1A5C; background:#F1E9D6; color:#0F1A5C; font-family:'Manrope',sans-serif; font-size:11px; font-weight:800; letter-spacing:0.06em; text-transform:uppercase; padding:6px 12px; cursor:pointer;">{{ spanishToggleLabel }}</button>
+    </div>
+    <sc-if value="{{ spanishOpen }}" hint-placeholder-val="{{ true }}">
+    <div style="border:4px solid #0F1A5C; padding:28px 30px;">
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:10px;">
+        <span style="font-family:'Manrope',sans-serif; font-size:12px; font-weight:800; letter-spacing:0.1em; text-transform:uppercase;">{{ spanish.episode }}</span>
+        <span style="font-family:'Manrope',sans-serif; font-size:12px; font-weight:700; color:rgba(15,26,92,0.55);">{{ spanish.date }}</span>
+      </div>
+      <p style="font-family:'Bodoni Moda',serif; font-size:34px; font-weight:800; margin:0 0 22px; font-style:italic; line-height:1.2;">{{ spanish.title }}</p>
+
+      <sc-for list="{{ spanish.paragraphs }}" as="p" hint-placeholder-count="4">
+        <div style="margin-bottom:16px; padding-bottom:16px; border-bottom:1px solid rgba(15,26,92,0.18);">
+          <p style="font-size:16.5px; color:#0F1A5C; margin:0 0 6px; line-height:1.7;">{{ p.es }}</p>
+          <p style="font-size:14.5px; color:rgba(15,26,92,0.6); margin:0; line-height:1.65; font-style:italic;">{{ p.en }}</p>
+        </div>
+      </sc-for>
+
+      <p style="font-family:'Manrope',sans-serif; font-size:12px; font-weight:800; letter-spacing:0.1em; text-transform:uppercase; margin:22px 0 12px;">📚 Vocabulario del día</p>
+      <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(200px,1fr)); gap:8px;">
+        <sc-for list="{{ spanish.vocab }}" as="v" hint-placeholder-count="8">
+          <div style="background:#3CD896; padding:8px 12px;">
+            <span style="font-weight:800; font-size:13.5px;">{{ v.es }}</span>
+            <span style="font-size:12.5px; opacity:0.8;"> — {{ v.en }}</span>
+          </div>
+        </sc-for>
+      </div>
+
+      <p style="margin:22px 0 0;"><a href="{{ spanish.url }}" target="_blank" style="font-family:'Manrope',sans-serif; font-size:12px; font-weight:800; letter-spacing:0.08em; text-transform:uppercase; text-decoration:none;">→ Leer en Spanish Language Coach</a></p>
+    </div>
+    </sc-if>
+  </section>
+  </sc-if>
+
+  <div style="position:sticky; top:0; background:#F1E9D6; padding:14px 0 16px; z-index:10; border-bottom:4px solid #0F1A5C; margin-bottom:26px;">
+    <div style="border:4px solid #0F1A5C; padding:14px;">
+      <div style="position:relative; margin-bottom:12px;">
+        <span style="position:absolute; left:14px; top:50%; transform:translateY(-50%); font-size:14px;">🔎</span>
+        <input type="text" value="{{ query }}" onInput="{{ onSearch }}" placeholder="搜索标题 / 摘要 / 内容... search all digests" style="width:100%; padding:12px 14px 12px 40px; border:2px solid #0F1A5C; background:#F1E9D6; color:#0F1A5C; font-size:14px; font-family:'Manrope',sans-serif;"/>
+      </div>
+      <div style="display:flex; flex-wrap:wrap; gap:6px; align-items:center;">
+        <sc-for list="{{ feedChips }}" as="chip" hint-placeholder-count="6">
+          <button onClick="{{ chip.onClick }}" style="{{ chip.style }}">{{ chip.icon }} {{ chip.name }} · {{ chip.count }}</button>
+        </sc-for>
+        <div style="margin-left:auto; display:flex; gap:0; border:2px solid #0F1A5C;">
+          <button onClick="{{ setLangZh }}" style="{{ langZhStyle }}">中文</button>
+          <button onClick="{{ setLangEn }}" style="{{ langEnStyle }}">English</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <sc-if value="{{ hasResults }}" hint-placeholder-val="{{ true }}">
+      <sc-for list="{{ cards }}" as="it" hint-placeholder-count="6">
+        <div style="background:#F1E9D6; border-bottom:4px solid #0F1A5C; padding:24px 4px;">
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px; flex-wrap:wrap;">
+            <span style="display:inline-flex; align-items:center; gap:5px; font-family:'Manrope',sans-serif; font-size:11px; font-weight:800; letter-spacing:0.08em; text-transform:uppercase; padding:5px 10px; background:#0F1A5C; color:#3CD896; white-space:nowrap;">{{ it.feedIcon }} {{ it.feedName }}</span>
+            <span style="font-family:'Manrope',sans-serif; font-size:12px; font-weight:700; color:rgba(15,26,92,0.55);">{{ it.date }}</span>
+            <button onClick="{{ it.onToggle }}" style="margin-left:auto; border:2px solid #0F1A5C; background:{{ it.toggleBg }}; color:{{ it.toggleColor }}; font-family:'Manrope',sans-serif; font-size:11px; font-weight:800; letter-spacing:0.06em; text-transform:uppercase; padding:5px 11px; cursor:pointer; white-space:nowrap;">{{ it.toggleLabel }}</button>
+          </div>
+          <sc-if value="{{ it.link }}" hint-placeholder-val="{{ false }}">
+            <a href="{{ it.link }}" target="_blank" style="text-decoration:none;">
+              <p style="font-family:'Bodoni Moda',serif; font-size:28px; line-height:1.12; font-weight:800; margin:0 0 10px; letter-spacing:-0.005em; color:#0F1A5C;">{{ it.title }} <span style="font-size:16px;">↗</span></p>
+            </a>
+          </sc-if>
+          <sc-if value="{{ it.noLink }}" hint-placeholder-val="{{ false }}">
+            <p style="font-family:'Bodoni Moda',serif; font-size:28px; line-height:1.12; font-weight:800; margin:0 0 10px; letter-spacing:-0.005em;">{{ it.title }}</p>
+          </sc-if>
+          <p style="font-size:16px; color:rgba(15,26,92,0.78); margin:0; line-height:1.75;">{{ it.teaser }}</p>
+
+          <sc-if value="{{ it.expanded }}" hint-placeholder-val="{{ false }}">
+            <div style="margin-top:18px;">
+              <sc-for list="{{ it.sections }}" as="sec" hint-placeholder-count="3">
+                <div style="margin-top:18px;">
+                  <p style="font-family:'Manrope',sans-serif; font-size:12px; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; margin:0 0 4px; padding:10px 0 8px; border-top:2px solid #0F1A5C;">{{ sec.heading }}</p>
+                  <sc-for list="{{ sec.items }}" as="item" hint-placeholder-count="3">
+                    <div style="padding:10px 0; border-top:1px solid rgba(15,26,92,0.15);">
+                      <sc-if value="{{ item.link }}" hint-placeholder-val="{{ false }}">
+                        <a href="{{ item.link }}" target="_blank" style="text-decoration:none;">
+                          <p style="font-family:'Bodoni Moda',serif; font-size:18px; font-weight:800; margin:0 0 4px; line-height:1.25; color:#0F1A5C;">{{ item.title }} <span style="font-size:12px;">↗</span></p>
+                        </a>
+                      </sc-if>
+                      <sc-if value="{{ item.noLink }}" hint-placeholder-val="{{ false }}">
+                        <p style="font-family:'Bodoni Moda',serif; font-size:18px; font-weight:800; margin:0 0 4px; line-height:1.25;">{{ item.title }}</p>
+                      </sc-if>
+                      <p style="font-size:14.5px; color:rgba(15,26,92,0.75); margin:0; line-height:1.7;">{{ item.text }}</p>
+                    </div>
+                  </sc-for>
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+        </div>
+      </sc-for>
+    </sc-if>
+    <sc-if value="{{ noResults }}" hint-placeholder-val="{{ false }}">
+      <div style="text-align:center; color:rgba(15,26,92,0.6); font-size:13px; padding:44px 0; border:4px solid #0F1A5C;">没有匹配结果 · No matching results</div>
+    </sc-if>
+  </div>
+
+  <footer style="text-align:center; font-family:'Manrope',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:rgba(15,26,92,0.5); margin-top:36px; padding-top:20px; border-top:4px solid #0F1A5C;">Morning Dashboard · News Log / AI Builders Digest / AI Podcast Watch / Tech Trend Digest / AIGC Video / Spanish 每日一句</footer>
+</div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 1180}, &quot;pinnedSpanish&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;}, &quot;defaultLang&quot;: {&quot;editor&quot;: &quot;enum&quot;, &quot;default&quot;: &quot;zh&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;options&quot;: [&quot;zh&quot;, &quot;en&quot;]}}">
+const FEED_META = {
+  news: { name: "News Log", icon: "📰" },
+  builders: { name: "AI Builders Digest", icon: "🐦" },
+  podcast: { name: "AI Podcast Watch", icon: "🎙️" },
+  techtrend: { name: "Tech Trend Digest", icon: "💻" },
+  aigcvideo: { name: "AIGC Video Watch", icon: "🎬" },
+};
+
+const SPANISH_LATEST = {
+  episode: "E254",
+  date: "2026-07-09",
+  title: "¿Qué hacen las parejas que funcionan?",
+  url: "https://www.spanishlanguagecoach.com/post/e254-qu%C3%A9-hacen-las-parejas-que-funcionan",
+  paragraphs: [
+    { es: "Cuando eliges una novela, una serie, una película o cuando visitas un museo, hay un tema común en muchas de esas obras: el amor. El amor es un sentimiento que nos acompaña a lo largo de la vida de diversas formas y no siempre es fácil de gestionar.", en: "When you choose a novel, a series, a film, or when you visit a museum, there is a common theme in many of those works: love. Love is a feeling that accompanies us throughout life in diverse forms and is not always easy to manage." },
+    { es: "Especialmente, el amor romántico. La ilusión del comienzo es muy especial, pero hay muchos desafíos. Algunas parejas sobreviven a una crisis enorme, pero otras se rompen por un mensaje de WhatsApp, por unos platos sucios o por una frase dicha en mal momento.", en: "Especially romantic love. The excitement of the beginning is very special, but there are many challenges. Some couples survive an enormous crisis, but others break up over a WhatsApp message, dirty dishes, or a phrase said at the wrong moment." },
+    { es: "Hay relaciones que parecen perfectas desde fuera y terminan de repente. Y hay otras que parecen más normales, menos cinematográficas, pero duran muchos años.", en: "There are relationships that seem perfect from the outside and end suddenly. And there are others that seem more normal, less cinematic, but last many years." },
+    { es: "En este episodio vamos a ver por qué unas parejas funcionan y otras no. Y vamos a responder a la pregunta: ¿qué hacen las parejas que funcionan?", en: "In this episode we are going to see why some couples work and others don't. And we are going to answer the question: what do the couples that work actually do?" },
+    { es: "Muchas veces, cuando pensamos en el amor, no podemos evitar idealizarlo. El amor idealizado es ese amor de las princesas Disney y de las comedias románticas de Hollywood: un amor ideal, perfecto, que supera todos los desafíos y que siempre termina bien.", en: "Many times, when we think about love, we cannot help but idealize it. Idealized love is the love of Disney princesses and Hollywood romantic comedies: an ideal, perfect love that overcomes all challenges and always ends well." },
+    { es: "Pero el amor en la vida real no siempre se parece a ese amor. Cuando compartimos la vida con nuestra pareja, tenemos que afrontar años de rutina, malos días en el trabajo, tensiones con los niños o discusiones sobre a quién le toca hoy fregar los platos.", en: "But love in real life does not always resemble that love. When we share our life with our partner, we have to face years of routine, bad days at work, tensions with the children, or arguments about whose turn it is to wash the dishes today." },
+    { es: "Si lo piensas, el amor se parece mucho a aprender un idioma. Las dos cosas empiezan con una emoción enorme, pasan por una fase difícil en la que mucha gente abandona, pero tanto el aprendizaje de un idioma como el amor, cuando funcionan bien, se convierten en algo que dura toda la vida si lo cuidamos bien.", en: "If you think about it, love is very similar to learning a language. Both start with enormous excitement, go through a difficult phase in which many people give up, but both language learning and love, when they work well, become something that lasts a lifetime if we take care of them." },
+    { es: "Al principio, todo es emoción. Cuando empezamos a estudiar una lengua nueva, nos fascinan los sonidos, las palabras raras y la idea de poder comunicarnos con gente nueva. Aprendemos rápido porque le ponemos muchas ganas y no nos importa el esfuerzo porque lo hacemos con amor.", en: "At the beginning, everything is excitement. When we start studying a new language, we are fascinated by the sounds, the strange words, and the idea of being able to communicate with new people. We learn quickly because we put a lot of energy into it and the effort doesn't bother us because we do it with love." },
+    { es: "Pasa exactamente lo mismo cuando conocemos a alguien que nos gusta. Hay una especie de subidón que no siempre es racional; más bien, no lo es nunca.", en: "The same thing happens when we meet someone we like. There is a kind of rush that is not always rational — or rather, it never is." },
+    { es: "Vamos a imaginar a dos protagonistas. Puedes ponerles los nombres que quieras: Marta y Diego, Diego y Juan o Marta y Sonia. Esta pareja inventada la vamos a usar de ejemplo durante el episodio para entender distintas fases del enamoramiento.", en: "Let's imagine two protagonists. You can give them whatever names you like: Marta and Diego, Diego and Juan, or Marta and Sonia. We are going to use this invented couple as an example throughout the episode to understand the different phases of falling in love." },
+    { es: "Esta pareja se conoció en una boda, hablaron durante horas y, durante las primeras semanas, no podían dejar de pensar el uno en el otro. Se mensajeaban constantemente, se llamaban… Y todo de la otra persona les parecía superinteresante: sus gustos musicales rarísimos, su carrera profesional, su espíritu viajero…", en: "This couple met at a wedding, talked for hours, and during the first weeks they could not stop thinking about each other. They texted constantly, called each other… And everything about the other person seemed super interesting to them: their very unusual musical tastes, their career, their love of travel…" },
+  ],
+  vocab: [
+    { es: "gestionar", en: "to manage / handle" },
+    { es: "la ilusión", en: "excitement / hope" },
+    { es: "los desafíos", en: "challenges" },
+    { es: "sobrevivir", en: "to survive" },
+    { es: "romperse (pareja)", en: "to break up" },
+    { es: "idealizar", en: "to idealize" },
+    { es: "la rutina", en: "routine" },
+    { es: "la discusión", en: "argument" },
+    { es: "fregar los platos", en: "to wash dishes" },
+    { es: "el aprendizaje", en: "learning" },
+    { es: "cuidar", en: "to take care of" },
+    { es: "el subidón", en: "rush / high" },
+    { es: "el enamoramiento", en: "falling in love" },
+    { es: "los gustos", en: "tastes" },
+  ],
+};
+
+class Component extends DCLogic {
+  state = { days: [], activeFeed: "all", query: "", lang: this.props.defaultLang || "zh", spanishOpen: true, expandedCards: {} };
+
+  componentDidMount() {
+    import((window.__resources && window.__resources.dashboardData) || "./dashboard-data.js").then(m => this.setState({ days: m.DAYS })).catch(e => console.error("data load failed", e));
+    this._onKeydown = (e) => {
+      const key = (e.key || "").toLowerCase();
+      if ((e.metaKey || e.ctrlKey) && key === "h") {
+        e.preventDefault();
+        this.highlightSelection();
+      }
+    };
+    window.addEventListener("keydown", this._onKeydown);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("keydown", this._onKeydown);
+  }
+
+  highlightSelection = () => {
+    const sel = window.getSelection();
+    if (!sel || sel.isCollapsed || sel.rangeCount === 0) return;
+    const range = sel.getRangeAt(0);
+    const mark = document.createElement("mark");
+    mark.className = "md-hl";
+    try {
+      range.surroundContents(mark);
+    } catch (err) {
+      const frag = range.extractContents();
+      mark.appendChild(frag);
+      range.insertNode(mark);
+    }
+    sel.removeAllRanges();
+  };
+
+  dayText(day) {
+    const parts = [day.title, day.teaserZh || "", day.teaserEn || ""];
+    (day.sections || []).forEach(sec => {
+      parts.push(sec.heading);
+      (sec.items || []).forEach(item => { parts.push(item.title, item.text || ""); });
+    });
+    return parts.join(" ").toLowerCase();
+  }
+
+  renderVals() {
+    const { days, activeFeed, query, lang, spanishOpen, expandedCards } = this.state;
+    const q = query.trim().toLowerCase();
+
+    const FEED_ORDER = ["news", "builders", "podcast", "techtrend", "aigcvideo"];
+    const filtered = days
+      .map((d, idx) => ({ ...d, _id: idx }))
+      .filter(d => (activeFeed === "all" || d.feed === activeFeed) && (!q || this.dayText(d).includes(q)))
+      .sort((a, b) => b.date.localeCompare(a.date) || FEED_ORDER.indexOf(a.feed) - FEED_ORDER.indexOf(b.feed));
+
+    const itemCount = d => (d.sections || []).reduce((n, s) => n + (s.items || []).length, 0);
+    const feedCounts = {};
+    days.forEach(d => { feedCounts[d.feed] = (feedCounts[d.feed] || 0) + itemCount(d); });
+    const totalItems = days.reduce((n, d) => n + itemCount(d), 0);
+    const topFeedId = Object.entries(feedCounts).sort((a, b) => b[1] - a[1])[0]?.[0];
+
+    const feedChips = [
+      { id: "all", name: "全部 All", icon: "🗞️", count: totalItems },
+      ...Object.entries(FEED_META).map(([id, m]) => ({ id, name: m.name, icon: m.icon, count: feedCounts[id] || 0 })),
+    ].map(chip => {
+      const active = activeFeed === chip.id;
+      return {
+        ...chip,
+        onClick: () => this.setState({ activeFeed: chip.id, query: "" }),
+        style: `font-family:'Manrope',sans-serif; border:2px solid #0F1A5C; background:${active ? "#0F1A5C" : "#F1E9D6"}; color:${active ? "#3CD896" : "#0F1A5C"}; cursor:pointer; font-weight:700; padding:6px 10px; font-size:12px;`,
+      };
+    });
+
+    const dates = [...new Set(days.map(d => d.date))].sort().reverse();
+    const latestDate = dates[0] || "--";
+    const latestCount = days.filter(d => d.date === latestDate).reduce((n, d) => n + itemCount(d), 0);
+
+    const cards = filtered.map(d => {
+      const meta = FEED_META[d.feed] || { name: d.feed, icon: "📄" };
+      const expanded = !!expandedCards[d._id];
+      return {
+        feedName: meta.name,
+        feedIcon: meta.icon,
+        title: d.title,
+        date: d.date,
+        link: d.link || "",
+        noLink: !d.link,
+        teaser: lang === "zh" ? (d.teaserZh || d.teaserEn) : (d.teaserEn || d.teaserZh),
+        sections: (d.sections || []).map(sec => ({
+          heading: sec.heading,
+          items: (sec.items || []).map(item => ({
+            title: item.title,
+            text: item.text || "",
+            link: item.link || "",
+            noLink: !item.link,
+          })),
+        })),
+        expanded,
+        toggleLabel: expanded ? "收起 −" : "展开全部 +",
+        toggleBg: expanded ? "#0F1A5C" : "#F1E9D6",
+        toggleColor: expanded ? "#3CD896" : "#0F1A5C",
+        onToggle: () => this.setState(s => ({ expandedCards: { ...s.expandedCards, [d._id]: !s.expandedCards[d._id] } })),
+      };
+    });
+
+    return {
+      heroGenerated: latestDate,
+      heroItems: totalItems,
+      latestDate,
+      latestCount,
+      topFeedName: FEED_META[topFeedId]?.name || "--",
+      showSpanish: this.props.pinnedSpanish ?? true,
+      spanish: SPANISH_LATEST,
+      spanishOpen,
+      spanishToggleLabel: spanishOpen ? "收起 Collapse" : "展开 Expand",
+      toggleSpanish: () => this.setState(s => ({ spanishOpen: !s.spanishOpen })),
+      query,
+      onSearch: (e) => this.setState({ query: e.target.value }),
+      feedChips,
+      setLangZh: () => this.setState({ lang: "zh" }),
+      setLangEn: () => this.setState({ lang: "en" }),
+      langZhStyle: `border:0; background:${lang === "zh" ? "#0F1A5C" : "#F1E9D6"}; color:${lang === "zh" ? "#3CD896" : "#0F1A5C"}; padding:7px 14px; font-size:12.5px; cursor:pointer; font-weight:700; font-family:'Manrope',sans-serif;`,
+      langEnStyle: `border:0; background:${lang === "en" ? "#0F1A5C" : "#F1E9D6"}; color:${lang === "en" ? "#3CD896" : "#0F1A5C"}; padding:7px 14px; font-size:12.5px; cursor:pointer; font-weight:700; font-family:'Manrope',sans-serif;`,
+      cards,
+      hasResults: filtered.length > 0,
+      noResults: days.length > 0 && filtered.length === 0,
+    };
+  }
+}
+
+</script>
+</body>
+</html>
