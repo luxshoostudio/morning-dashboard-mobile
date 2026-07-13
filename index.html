@@ -185,14 +185,14 @@ const SPANISH_LATEST = {
 const FEED_ORDER = ["news", "builders", "podcast", "techtrend", "aigcvideo"];
 
 class Component extends DCLogic {
-  state = { days: [], activeFeed: "all", query: "", lang: "zh", spanishOpen: true, expanded: {}, activeIdx: 0, progressPct: 0 };
+  state = { days: [], activeFeed: "all", query: "", lang: "zh", spanishOpen: true, expanded: {}, activeIdx: 0, progressPct: 0, spanish: SPANISH_LATEST };
 
   scrollRef = React.createRef();
 
   componentDidMount() {
     import("./dashboard-data.js").then(m => {
       const firstId = this.firstCardId(m.DAYS, "all", "");
-      this.setState({ days: m.DAYS, expanded: firstId != null ? { [firstId]: true } : {} });
+      this.setState({ days: m.DAYS, spanish: m.SPANISH_LATEST || SPANISH_LATEST, expanded: firstId != null ? { [firstId]: true } : {} });
     }).catch(e => console.error("data load failed", e));
   }
 
@@ -221,7 +221,7 @@ class Component extends DCLogic {
   }
 
   renderVals() {
-    const { days, activeFeed, query, lang, spanishOpen, expanded } = this.state;
+    const { days, activeFeed, query, lang, spanishOpen, expanded, spanish } = this.state;
     const q = query.trim().toLowerCase();
 
     const filtered = days
@@ -297,7 +297,7 @@ class Component extends DCLogic {
         scrollRef: this.scrollRef,
         showSpanish,
         spanishCollapsedHint: showSpanish && !spanishOpen,
-        spanish: SPANISH_LATEST,
+        spanish: spanish || SPANISH_LATEST,
         spanishOpen,
         spanishToggleLabel: spanishOpen ? "收起" : "展开",
         toggleSpanish: () => this.setState({ spanishOpen: !spanishOpen }),

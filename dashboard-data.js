@@ -13686,3 +13686,121 @@ export const DAYS = [
     ]
   }
 ];
+
+export const SPANISH_LATEST = {
+  "episode": "E254",
+  "day": "2",
+  "date": "2026-07-10",
+  "title": "¿Qué hacen las parejas que funcionan?",
+  "section": "Las tres fases del amor — Helen Fisher",
+  "source": "Spanish Language Coach",
+  "url": "https://www.spanishlanguagecoach.com/post/e254-qu%C3%A9-hacen-las-parejas-que-funcionan",
+  "paragraphs": [
+    {
+      "es": "Esta fascinación inicial por el otro tiene una explicación. Vamos a ver lo que dice al respecto la antropóloga Helen Fisher, que ha dedicado buena parte de su carrera a estudiar qué pasa exactamente en nuestro cerebro durante esos primeros meses de relación.",
+      "en": "This initial fascination with the other person has an explanation. Let's look at what the anthropologist Helen Fisher says about it — she has devoted a good part of her career to studying exactly what happens in our brain during those first months of a relationship."
+    },
+    {
+      "es": "Según sus investigaciones, hay tres sistemas distintos que se activan, y no siempre al mismo tiempo.",
+      "en": "According to her research, there are three distinct systems that are activated, and not always at the same time."
+    },
+    {
+      "es": "El primero es el deseo. El deseo es lo más primitivo, básico y está relacionado con las hormonas sexuales.",
+      "en": "The first is desire. Desire is the most primitive, basic, and is related to sex hormones."
+    },
+    {
+      "es": "El segundo es el enamoramiento propiamente dicho. Cuando estamos enamorados se dispara la dopamina, igual que cuando ganamos un juego, recibimos una buena noticia o comemos nuestro plato favorito.",
+      "en": "The second is falling in love proper. When we are in love, dopamine is triggered, just as when we win a game, receive good news, or eat our favourite dish."
+    },
+    {
+      "es": "El tercer sistema que se activa es el apego. El apego está relacionado con la oxitocina y la vasopresina, que aparecen ya cuando llevamos más tiempo compartiendo la vida con alguien.",
+      "en": "The third system that is activated is attachment. Attachment is related to oxytocin and vasopressin, which appear when we have been sharing life with someone for longer."
+    },
+    {
+      "es": "Ahora ya conocemos qué elementos participan en el amor. Lo interesante es que estos tres sistemas no siempre van sincronizados. Por eso, a veces, deseamos a una persona, pero no nos imaginamos construyendo una vida con ella a largo plazo.",
+      "en": "Now we know what elements participate in love. The interesting thing is that these three systems are not always synchronized. That is why sometimes we desire a person but cannot imagine building a life with them in the long run."
+    },
+    {
+      "es": "Otras veces nos sentimos profundamente unidos a alguien, pero nos falta esa chispa inicial tan intensa; lo vemos más como un amigo.",
+      "en": "Other times we feel deeply united with someone, but we lack that initial spark so intense; we see them more as a friend."
+    },
+    {
+      "es": "La verdad es que el cerebro, en temas de amor, es bastante más complicado que un simple flechazo.",
+      "en": "The truth is that the brain, in matters of love, is considerably more complicated than a simple love-at-first-sight."
+    },
+    {
+      "es": "Por cierto, flechazo viene de flecha y el sufijo -azo. Este -azo suele indicar un golpe o impacto: puñetazo (un golpe con el puño); portazo (un golpe con una puerta). La flecha es un proyectil que disparamos con un arco. En este caso, el proyectil lo lanza Cupido, un dios romano que dispara flechas que hacen que nos enamoremos.",
+      "en": "By the way, flechazo comes from flecha (arrow) and the suffix -azo. This -azo usually indicates a blow or impact: puñetazo (a punch); portazo (a door slam). The arrow is a projectile we fire with a bow. In this case, the projectile is launched by Cupid, a Roman god who fires arrows that make us fall in love."
+    },
+    {
+      "es": "Cuando nos enamoramos muy rápidamente, decimos que hemos tenido un flechazo.",
+      "en": "When we fall in love very quickly, we say we have had a flechazo (love at first sight)."
+    },
+    {
+      "es": "Fisher también ha observado que las personas tendemos a sentirnos atraídas por tipos de personalidad muy distintos al nuestro, casi como si buscáramos de manera inconsciente algo que nos complemente. Y aquí me gustaría detenerme un momento, porque creo que conocernos bien puede evitar muchísimos malentendidos.",
+      "en": "Fisher has also observed that we tend to be attracted to personality types very different from our own, almost as if we were unconsciously looking for something that complements us. And here I would like to pause for a moment, because I think knowing ourselves well can avoid a great many misunderstandings."
+    }
+  ],
+  "vocab": [
+    {
+      "es": "la antropóloga",
+      "en": "anthropologist (f.)"
+    },
+    {
+      "es": "las investigaciones",
+      "en": "research / investigations"
+    },
+    {
+      "es": "activarse",
+      "en": "to be activated / to kick in"
+    },
+    {
+      "es": "el deseo",
+      "en": "desire"
+    },
+    {
+      "es": "dispararse",
+      "en": "to be triggered / to shoot up"
+    },
+    {
+      "es": "la dopamina",
+      "en": "dopamine"
+    },
+    {
+      "es": "el apego",
+      "en": "attachment"
+    },
+    {
+      "es": "la oxitocina",
+      "en": "oxytocin"
+    },
+    {
+      "es": "la chispa",
+      "en": "spark"
+    },
+    {
+      "es": "el flechazo",
+      "en": "love at first sight"
+    },
+    {
+      "es": "la flecha",
+      "en": "arrow"
+    },
+    {
+      "es": "el sufijo -azo",
+      "en": "suffix indicating a blow/impact"
+    },
+    {
+      "es": "sentirnos atraídos/as",
+      "en": "to be attracted"
+    },
+    {
+      "es": "complementar",
+      "en": "to complement"
+    },
+    {
+      "es": "el malentendido",
+      "en": "misunderstanding"
+    }
+  ]
+};

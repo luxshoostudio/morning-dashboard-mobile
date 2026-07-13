@@ -218,10 +218,10 @@ const SPANISH_LATEST = {
 };
 
 class Component extends DCLogic {
-  state = { days: [], activeFeed: "all", query: "", lang: this.props.defaultLang || "zh", spanishOpen: true, expandedCards: {} };
+  state = { days: [], activeFeed: "all", query: "", lang: this.props.defaultLang || "zh", spanishOpen: true, expandedCards: {}, spanish: SPANISH_LATEST };
 
   componentDidMount() {
-    import((window.__resources && window.__resources.dashboardData) || "./dashboard-data.js").then(m => this.setState({ days: m.DAYS })).catch(e => console.error("data load failed", e));
+    import((window.__resources && window.__resources.dashboardData) || "./dashboard-data.js").then(m => this.setState({ days: m.DAYS, spanish: m.SPANISH_LATEST || SPANISH_LATEST })).catch(e => console.error("data load failed", e));
     this._onKeydown = (e) => {
       const key = (e.key || "").toLowerCase();
       if ((e.metaKey || e.ctrlKey) && key === "h") {
@@ -262,7 +262,7 @@ class Component extends DCLogic {
   }
 
   renderVals() {
-    const { days, activeFeed, query, lang, spanishOpen, expandedCards } = this.state;
+    const { days, activeFeed, query, lang, spanishOpen, expandedCards, spanish } = this.state;
     const q = query.trim().toLowerCase();
 
     const FEED_ORDER = ["news", "builders", "podcast", "techtrend", "aigcvideo"];
@@ -328,7 +328,7 @@ class Component extends DCLogic {
       latestCount,
       topFeedName: FEED_META[topFeedId]?.name || "--",
       showSpanish: this.props.pinnedSpanish ?? true,
-      spanish: SPANISH_LATEST,
+      spanish: spanish || SPANISH_LATEST,
       spanishOpen,
       spanishToggleLabel: spanishOpen ? "收起 Collapse" : "展开 Expand",
       toggleSpanish: () => this.setState(s => ({ spanishOpen: !s.spanishOpen })),
